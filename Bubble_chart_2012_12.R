@@ -42,48 +42,6 @@ rownames(sympaties) = candidates
 colnames(sympaties) = candidates
 
 
-# ###STOP-------PRESKOC NA VYPOCET CLUSTERU!!!
-# #transformace sympatií pro MSD - symetrizace a vytvoreni vzdalenosti
-# s = 0.5 * (sympaties + t(sympaties)) 
-# s = 1/s * 10
-# diag(s) = 0
-# 
-# fit = cmdscale(s, eig = TRUE, k = 2)
-# 
-# MSD = data.frame(fit$points[, 1])
-# MSD = cbind (MSD, fit$points[, 2])
-# 
-# all_voters = table(dicided_voters$PV_149)[-c(1,13,14)]
-# all_voters = (all_voters/nrow(cvvm[cvvm$voter_type < 4 ,]))*100
-# MSD = cbind (MSD, as.vector(all_voters))
-# 
-# 
-# core_voters = table(dicided_voters[dicided_voters$voter_type == 1,"PV_149"])[-c(1,13,14)]
-# core_voters = (core_voters/nrow(cvvm[cvvm$voter_type < 4 ,]))*100
-# MSD = cbind (MSD, as.vector(core_voters))
-# names(MSD) = c("x", "y", "all_voters", "core_voters")
-# 
-# MSD = cbind (MSD, paste0(rownames(MSD),"\n" ,round(MSD$all_voters,1) ," %, ", round(MSD$core_voters, 1)," %"))
-# names(MSD) = c("x", "y", "all_voters", "core_voters", "labels")
-# 
-# 
-# #vytvoreni grafu
-# library(ggplot2)
-# 
-# ggplot(MSD, aes(x, y) ) +
-#   geom_point(size = all_voters, alpha = 0.3, colour = "blue") +
-#   geom_point(size = core_voters, colour = "blue") +
-#   geom_text(aes(label=labels, lineheight = 0.8), size=3, vjust = -1) +
-#   xlim(-2.5, 2.5) +
-#   ylim(-1.5,3.5)
-
-
-
-
-
-
-
-
 #----------------------------------------------------
 #pridani nerozhodnutych volicu
 # K-Means Cluster Analysis
